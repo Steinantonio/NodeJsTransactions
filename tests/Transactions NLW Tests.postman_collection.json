@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "dfd3f03b-ef6f-4bfa-8793-ac503749ab59",
+		"name": "Transactions NLW Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"SecondManUser\",\r\n    \"password\":\"MyPasswordCrypto\",\r\n    \"email\":\"teste@test.com\",\r\n    \"name\": \"MyUser\",\r\n    \"birthDate\":\"21-05-1997\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\":\"SecondManUser\",\r\n    \"password\":\"MyPasswordCrypto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserIsAuth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IkZpcnN0VXNlckV2ZXIiLCJpYXQiOjE2MjQ2MDM3OTYsImV4cCI6MTYyNDY5MDE5Niwic3ViIjoiZmU2ZmIwYzItZmY5OS00YjYyLTkzODktYWM5ZTA3OWU0M2VmIn0.1t6SrGyVYlk4rinyxoek4CGudtQAd5wUarPcg9nLZCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IkZpcnN0VXNlckV2ZXIiLCJpYXQiOjE2MjQ2MDQzMjgsImV4cCI6MTYyNDY5MDcyOCwic3ViIjoiOGU4YmU4NDEtZDEzMy00MWI4LTk3OWQtZWY3YjhkNmRlODgzIn0.7ksgz78knw-67DPJZQBu0uaQw7irdxRGE6hGAJkGfr8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"birthDate\":\"10-10-10 \",\r\n          \"income\":1241251,\r\n          \"outflow\":12152141,\r\n          \"description\": \"testest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserTransactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlNlY29uZE1hblVzZXIiLCJpYXQiOjE2MjQ1ODcxMTksImV4cCI6MTYyNDY3MzUxOSwic3ViIjoiNDUyNWNlM2QtNjE1YS00ZGYwLTkyODEtN2QxNWYwOTc1MTU4In0.-OgfzgZ_QqOYdkcRLaAn0HTSKGn6VldW27YmyJaHScY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactionById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlNlY29uZE1hblVzZXIiLCJpYXQiOjE2MjQ1ODcxMTksImV4cCI6MTYyNDY3MzUxOSwic3ViIjoiNDUyNWNlM2QtNjE1YS00ZGYwLTkyODEtN2QxNWYwOTc1MTU4In0.-OgfzgZ_QqOYdkcRLaAn0HTSKGn6VldW27YmyJaHScY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transaction/38c081dd-896f-4fc0-a939-1fb391d35349",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"38c081dd-896f-4fc0-a939-1fb391d35349"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IlNlY29uZE1hblVzZXIiLCJpYXQiOjE2MjQ1ODcxMTksImV4cCI6MTYyNDY3MzUxOSwic3ViIjoiNDUyNWNlM2QtNjE1YS00ZGYwLTkyODEtN2QxNWYwOTc1MTU4In0.-OgfzgZ_QqOYdkcRLaAn0HTSKGn6VldW27YmyJaHScY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transaction/38c081dd-896f-4fc0-a939-1fb391d35349",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"38c081dd-896f-4fc0-a939-1fb391d35349"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6IkZpcnN0VXNlckV2ZXIiLCJpYXQiOjE2MjQ2MDQzMjgsImV4cCI6MTYyNDY5MDcyOCwic3ViIjoiOGU4YmU4NDEtZDEzMy00MWI4LTk3OWQtZWY3YjhkNmRlODgzIn0.7ksgz78knw-67DPJZQBu0uaQw7irdxRGE6hGAJkGfr8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"birthDate\": \"11-05-11\",\r\n    \"income\": 20000,\r\n    \"outflow\": 3000,\r\n    \"description\": \"I am rich boy!\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/transaction/5a070212-44e5-4a24-9e59-c62ea32e80dc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"transaction",
+						"5a070212-44e5-4a24-9e59-c62ea32e80dc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
